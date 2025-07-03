@@ -1,73 +1,51 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Passo a passo de instalação do projeto clima
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Links do github:
+[usuarios_clima](https://github.com/Kaue-C-Matos/usuarios_clima.git)
+[front_clima](https://github.com/Kaue-C-Matos/front_clima.git)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 1 Banco de dados
+1. Inicialize o Xampp e dirija-se ao phpmyadmin ou outro sistema para gerenciar seus bancos;
+2. Vá até **Importar** e selecione o arquivo `clima.sql`;
+3. Importe o banco para a sua base de dados;
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+## 2 Back end (NestJS)
+1. Clone o repositório `usuarios_clima` e abra a pasta no seu editor de código;
+2. No arquivo `src/app.module.ts` configure os seguintes dados;
+```ts
+port: <sua porta MySQL>
+username: <seu usuário>
+password: <sua senha>
+```
+3. Abra o terminal e execute os comandos: 
 ```bash
-$ npm install
+npm install 
+nest start
 ```
 
-## Running the app
+---
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+## 3 Front end (React)
+1. Clone o repositório `front_clima` a abra a pasta seu editor de código;
+2. Abra o terminal e rode os comandos:
+```bash 
+npm install
+npm start
 ```
 
-## Test
+## ⚠️IMPORTANTE - Chave Weather API
 
-```bash
-# unit tests
-$ npm run test
+Caso você receba a seguinte mensagem:
 
-# e2e tests
-$ npm run test:e2e
+*Erro: sua chave da API não é válida ou expirou*
 
-# test coverage
-$ npm run test:cov
+Siga os passos a seguir
+
+1. Acesse o site [weatherapi.com](https://www.weatherapi.com) crie uma conta ou realize o login;
+2. Copie a chave de acesso fornecida (API key)
+3. Vá até o arquivo `src/pages/Clima/Clima.js` e substitua o valor `key` da constante na linha 11 (lembrando que deve estar entre aspas):
+```javascript
+const key = "SUA_CHAVE_KEY"
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
